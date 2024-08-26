@@ -553,8 +553,7 @@ Returns:
 
 # 仓库的链接
 
-如果使用中有问题或者是需要别的什么算法，欢迎到
-[Issues · yi/myz_tools - Gitee.com](https://gitee.com/include_ios/myz_tools/issues)提Issues，我会逐个看过去的
+如果使用中有问题或者是需要别的什么算法，欢迎来提Issues，我会逐个看过去的
 
 # END
 
