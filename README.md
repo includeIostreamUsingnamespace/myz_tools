@@ -1,560 +1,519 @@
-# 【myz_tools】Python库 myz_tools：Python算法及文档自动化生成工具 - 0.2.0版更新
+
+
+
+
+
+# [myz_tools] Python Library myz_tools: Automatic Algorithm and Documentation Generation for Python - Version 0.2.0 updated
 
 [toc]
 
 
 
-# 0.2.0 更新内容如下
+The # 0.2.0 update follows
 
-增加了6个函数
+6 functions added
 
-更新内容如下
+The updates are as follows
 
-#### 函数generate_2d_combinations_iter
-
-```
-功能：
-    传入一个三维数组，返回每个二维数组的所有元素组合的迭代器。如果设置了 `test_first_group` 参数True,
-    则仅返回第一个二维数组的组合。
-
-参数：
-    data_3d (list): 一个三维列表，每个元素都是一个二维列表，表示多个二维数组。
-    test_first_group (bool): 是否只生成第一个二维数组的组合。默认为 False。
-
-返回值：
-    generator: 一个生成器对象，按需生成每个二维数组的所有元素组合。
-
-异常：
-    ValueError: 如果输入的数据不是三维列表，则抛出异常。
-
-示例：
-    >>> data = [[[1, 2], [3, 4]], [[5, 6], [7, 8]]]
-    >>> result_iter = generate_2d_combinations_iter(data)
-    >>> for combinations in result_iter:
-            # 每次拿到是一个二维列表的组合
-    ...     print(list(combinations)) # [(1, 3), (1, 4), (2, 3), (2, 4)]
-    下一次
-    [(5, 7), (5, 8), (6, 7), (6, 8)]
-
-
-    >>> result_iter = generate_2d_combinations_iter(data, test_first_group=True)
-    >>> print(list(next(result_iter)))
-    [(1, 3), (1, 4), (2, 3), (2, 4)]
-```
-
-#### 函数generate_row_permutations
+#### Function generate_2d_combinations_iter
 
 ```
-功能：
-    传入一个二维数组，返回该二维数组中每一行元素所有可能的排列组合。
+Functions:
+Pass in a three-dimensional array and return an iterator of all combinations of elements of each two-dimensional array. If the 'test_first_group' parameter is set to True,
+Returns only the combination of the first two-dimensional array.
+
+Parameters:
+data_3d (list): A three-dimensional list where each element is a two-dimensional list representing multiple two-dimensional arrays.
+test_first_group (bool): Whether to generate a combination of only the first 2D array. Defaults to False.
+
+Return value:
+generator: A generator object that generates all combinations of elements of each two - dimensional array on demand.
+
+Exception:
+ValueError: This throws an exception if the input data is not a 3D list.
+
+Examples:
+>>> data = [[[1, 2], [3, 4]], [[5, 6], [7, 8]]]
+>>> result_iter = generate_2d_combinations_iter(data) >>> for combinations in result_iter:
+# Each fetch is a combination of two dimensional lists
+... print(list(combinations)) # [(1, 3), (1, 4), (2, 3), (2, 4)] Next time
+[(5, 7), (5, 8), (6, 7), (6, 8)]
 
 
-参数：
-    data_2d (list): 一个二维列表，表示多个行数据。
 
-返回值：
-    generator: 生成器对象，按需生成每一行的所有排列组合并组合成二维数组。
 
-异常：
-    ValueError: 如果输入的二维数组为空或某行为空，则抛出异常。
 
-示例：
-    >>> data = [[1, 2], [3, 4]]
-    >>> permutations = generate_row_permutations(data)
-    >>> for perm in permutations:
-    ...     print(perm)
-    [[1, 2], [3, 4]]
-    [[1, 2], [4, 3]]
-    [[2, 1], [3, 4]]
-    [[2, 1], [4, 3]]
-```
-
-#### 函数calculate_total_permutations
-
-```
-功能：
-    计算并返回二维数组中所有行的排列组合总数。
-
-参数：
-    data_2d (list): 一个二维列表，表示多个行数据。
-
-返回值：
-    int: 所有行排列组合的总数。
-
-异常：
-    ValueError: 如果输入的二维数组为空或某行为空，则抛出异常。
-
-示例：
-    >>> data = [[1, 2], [3, 4]]
-    >>> total = calculate_total_permutations(data)
-    >>> print(total)
-    4
-```
-
-#### 函数display_combinations
+>>> result_iter = generate_2d_combinations_iter(data,test_first_group=True) >>> print(list(next(result_iter)))
+[(1, 3), (1, 4), (2, 3), (2, 4)] ```
+#### function generate_row_permutations
 
 ```
-功能：
-    打印二维数组中前 N 个排列组合，以检测组合生成的正确性。
+Functions:
+Pass in a two-dimensional array and return all possible permutations of the elements in each row of the two-dimensional array.
 
-参数：
-    data_2d (list): 一个二维列表，表示多个行数据。
-    N (int): 要打印的组合数量，默认为 5。
 
-返回值：
-    None
+Parameters:
+data_2d (list): A two-dimensional list representing multiple rows of data.
 
-异常：
-    ValueError: 如果输入的二维数组为空或某行为空，则抛出异常。
+Return value:
+generator: A generator object that generates all permutations of each row on demand and combines them into a two-dimensional array.
 
-示例：
-    >>> data = [[1, 2], [3, 4]]
-    >>> display_combinations(data, N=2)
-    [1, 2]
-    [3, 4]
+Exception:
+ValueError: This throws an exception if the input 2-D array is empty or if a row is empty.
 
-    [1, 2]
-    [4, 3]
+Example:
+>>> data = [[1, 2], [3, 4]]
+>>> permutations = generate_row_permutations(data) >>> for perm in permutations:
+... print(perm) [[1, 2], [3, 4]]  [[1, 2], [4, 3]]  [[2, 1], [3, 4]]
+[[2, 1], [4, 3]] ```
+#### function calculate_total_permutations
+
 ```
+Functions:
+Calculate and return the total number of permutations and combinations of all rows in a two-dimensional array.
 
-#### 函数evaluate_list_similarity
+Parameters:
+data_2d (list): A two-dimensional list representing multiple rows of data.
 
-`evaluate_list_similarity` 函数的各个评分方法都可以理解为“分数越小越好”的形式。
 
-1. **均方误差 (MSE)**：
-   - **公式**:$$\text{MSE} = \frac{1}{m} \sum_{i=1}^{m} (d_i - n)^2 $$
-   - **解释**: 计算所有差值与目标值 `n` 的平方差的平均值。均方误差对较大的差异惩罚更严重，得分越小表示列表元素与目标值的接近程度越高。
 
-2. **平均绝对误差 (MAE)**：
-   - **公式**: $$ \text{MAE} = \frac{1}{m} \sum_{i=1}^{m} |d_i - n| $$
-   - **解释**: 计算所有差值与目标值 `n` 的绝对差的平均值。与均方误差相比，平均绝对误差对所有差异的惩罚是均等的。得分越小表示列表元素与目标值的接近程度越高。
 
-3. **总分 (Total Score)**：
-   - **公式**: $$ \text{Total Score} = \sum_{i=1}^{m} |d_i - n| $$
-   - **解释**: 计算所有差值与目标值 `n` 的绝对差的总和。总分直接反映了所有差异的累积程度。得分越小表示列表元素与目标值的接近程度越高。
+
+Return value:
+int: The total number of all combinations of row permutations.
+
+Exception:
+ValueError: This throws an exception if the input 2-D array is empty or if a row is empty.
+
+Example:
+>>> data = [[1, 2], [3, 4]]
+>>> total = calculate_total_permutations(data) >>> print(total)
+4 ```
+#### function display_combinations
+
+```
+Functions:
+Print the first N permutations in a two-dimensional array to check the correctness of the combination generation.
+
+Parameters:
+data_2d (list): A two-dimensional list representing multiple rows of data. N (int): The number of combinations to print, which defaults to 5.
+
+Return value: None
+
+Anomaly:
+ValueError: This throws an exception if the input 2-D array is empty or if a row is empty.
+
+Example:
+>>> data = [[1, 2], [3, 4]]
+>>> display_combinations(data, N=2) [1, 2]
+[3, 4]
+
+[1, 2]
+[4, 3] ```
+#### function evaluate_list_similarity
+
+The various scoring methods of the 'evaluate_list_similarity' function can be interpreted as a form of "smaller is better".
+
+
+
+
+
+
+1. ** Mean Squared Error (MSE)** :
+- * * * * formula: $$\ text = {MSE} \ frac {1} {m} \ sum_ {I = 1} ^ {m} (d_i - n) ^ 2 $$
+- ** Explanation **: Calculate the average of the squared differences of all differences and the target value 'n'. The mean squared error penalizes larger differences more severely, with
+smaller scores indicating that the list element is closer to the target value.
+
+2. ** Mean Absolute Error ** :
+- * * * * formula: $$\ text MAE {} = \ frac {1} {m} \ sum_ {I = 1} ^ {m} | d_i -n | $$
+-  **  Explanation  **:  Calculate  the  average  of  the  absolute  differences  between  all differences and the target value 'n'. Compared to the mean squared error, the mean absolute error penalizes all differences equally. A smaller score indicates that the list element is closer
+to the target value.
+
+3. ** Total Score ** :
+- * * * * formula: $$\ text {Total Score} = \ sum_ {I = 1} ^ {m} | d_i -n | $$
+- ** Explanation **: Calculate the sum of absolute differences between all differences and  the target value 'n'. The total score directly reflects the cumulative degree of all the differences.
+A smaller score indicates that the list element is closer to the target value.
 
 
 
 ```
-功能：
-    评估列表中元素间的差异与给定值 `n` 的接近程度。支持不同的评分方法，例如均方误差 (MSE)、绝对误差等。
-    三种方式都是得分越小表示列表元素与目标值的接近程度越高
-参数：
-    lst (list of int/float): 需要评估的数字列表。
-    n (int/float): 用于比较的参考值，计算差异的目标值。
-    method (str): 选择的评分方法。支持 'MSE'（均方误差）、'MAE'（平均绝对误差）、'total_score'（总分）等。
+Features:
+Evaluate how close the difference between items in the list is to a given value 'n'. Different scoring methods are supported, such as mean squared error (MSE), absolute error, etc.
+In all three cases, a smaller score indicates that the list element is closer to the target value
+Parameters:
+lst (list of int/float): A list of numbers to evaluate.
+n (int/float): A reference value for comparison, a target value for calculating differences.
+method (str): The scoring method selected. Support 'MSE' (mean squared error), 'MAE' (Mean absolute error), 'total_score' (total score), etc.
 
-返回值：
-    float: 计算得出的评分值。
+Return value:
+float: The calculated rating value.
 
-异常：
-    ValueError: 如果输入的 `lst` 不是列表或 `n` 不是整数或浮点数，则抛出异常。
-    TypeError: 如果 `lst` 中的元素不是整数或浮点数，则抛出异常。
-    ValueError: 如果选择的评分方法不被支持，则抛出异常。
+Anomaly:
+ValueError: Throws an exception if the input 'lst' is not a list or 'n' is not an integer or float.
+TypeError: Throws an exception if the element in 'lst' is not an integer or float.
+ValueError: Throws an exception if the selected scoring method is not supported.
 
-示例：
-    >>> lst = [1, 3, 6, 10]
-    >>> n = 2
-    >>> score = evaluate_list_similarity(lst, n, method='MSE')
-    >>> print(score)
+Example:
 
-    >>> score = evaluate_list_similarity(lst, n, method='MAE')
-    >>> print(score)
+
+
+
+
+>>> lst = [1, 3, 6, 10] >>> n = 2
+>>> score = evaluate_list_similarity(lst, n, method='MSE') >>> print(score)
+
+>>> score = evaluate_list_similarity(lst, n, method='MAE') >>> print(score)
 ```
-
-#### 函数check_unique
+#### function check_unique
 
 ```
-功能：
-    检查传入的二维数组中的每个元素是否都是唯一的。如果所有元素唯一，返回 True；否则，返回 False。
+Functions:
+Checks whether each element of the passed two-dimensional array  is  unique.  If all elements are unique, return True; Otherwise, False is returned.
 
-参数：
-    data (list of list): 一个二维列表，其中包含需要检查的元素。
+Parameters:
+data (list of list): A two-dimensional list containing the elements to check.
 
-返回值：
-    bool: 如果所有元素都唯一，返回 True；否则，返回 False。
+Return value:
+bool: This returns True if all elements are unique Otherwise, False.
 
-异常：
-    TypeError: 如果输入的 `data` 不是一个二维列表，或包含非列表的元素，则抛出异常。
+Exception:
+TypeError: An exception is thrown if the input 'data' is not a two-dimensional list, or contains elements that are not a list.
 
-示例：
-    >>> data = [[1, 2, 3], [4, 5, 6]]
-    >>> check_unique(data)
-    True
+Example:
+>>> data = [[1, 2, 3], [4, 5, 6]] >>> check_unique(data)
+True
 
-    >>> data = [[1, 2, 3], [3, 4, 5]]
-    >>> check_unique(data)
-    False
-```
-
-***
-
-## 
-
+>>> data = [[1, 2, 3], [3, 4, 5]] >>> check_unique(data)
+False
+```  *** ##
 
 
 ****************************
 
-# 写在前面
 
-本来最开始只是单纯的想整理一下常用到的各类算法，还有一些辅助类的函数，方便时间短的情况下快速开发。后来发现整理成库更方便些，索性做成库，通过pip install 直接可以安装使用
 
-# 关于库
 
-平时见到的各类算法大多数还是需要自己手动敲，比如四分位距法，还得知道了原理后详改代码，索性直接做成函数，直接传入原始数据，返回清洗后的数据。内部的话代码也已经开源，也做过几轮测试，所以不用担心会出现什么奇奇怪怪的BUG之类，当然如果有的话还请提出
 
-# 库使用
+# Write in front
 
-安装方式
+Originally, I just wanted to sort out the various algorithms I used frequently, and some helper functions, so that I could quickly develop them in a short time. Later, I found that it was more convenient to organize into a library, so I simply made it into a library, which can be installed and used directly through pip install
 
+# About Libraries
+
+Most of the various algorithms you usually see still need to be typed manually, such as the interquartile range method, and you have to change the code after knowing the principle, simply make it directly into a function, directly pass the original data, and return the cleaned data. Internal code has also been open source, but also done a few rounds of testing, so do not worry about what strange bugs will appear, of course, if there are, please put forward
+
+# Using the library    Installation methods
 ```
-pip install myz_tools
-```
+pip install myz_tools ```
+Once installed, it works
 
-安装后就能用
+At present, there are two main parts, an algorithm, and a function for converting python files into documents, which is also very convenient to use. It supports custom directories and specifying output to an md or different md files that are transformed respectively. Although Sphinx can be used, I still look forward to finding a more concise way to solve the problem quickly
 
-目前主要两部分，一个算法，一个是用于python文件转化为文档的函数，使用也很方便，支持自定义目录和指定输出到一个md或者各自转化的不同的md文件里面，虽然有Sphinx可以用，但是我还是期待可以找到一种更加简洁的方式快速解决问题
-
-使用方式如下
+The usage is as follows.
 
 ```
 from myz_tools.source2md import dir2md
 
-dir2md("./待处理的目录")
-```
+dir2md("./ directory to be processed ") ```
 
 
 
-dir2md会自动检查此目录下的所有的python文件并且生成文档，完整参数可以鼠标放到上面查看
+dir2md  will  automatically  check  all  the  python  files  in  this  directory  and  generate documentation. The full parameters can be mouseover to view
 
-![image-20240815105239302](https://gitee.com/include_ios/picture-collection/raw/master/images/image-20240815105239302.png)
+
+
+
+
+!                                     [image-20240815105239302](https://gitee.com/include_ios/picture - collection/raw/master/images/image-20240815105239302.png )
 
 
 
 ************
-
-# 库内所有函数目录
-
+# Directory of all functions in the library
 
 
-# 文件名称: common_maths.py
 
-***
+# File name: common_maths.py
 
-***
+*** ***
+## Functions section:
 
-## 函数部分：
-
-#### 函数create_dir
+#### Function create_dir
 
 ```
-在指定路径下创建名称为{dir_name}的文件夹
-Args:
-    dir_name: 文件夹名称
-    path: 要创建文件夹的路径，默认为当前路径
+Create a folder with the name {dir_name} in the specified path Args:
+dir_name: folder name
+path: The path to create the folder, defaults to the current path
 
 Returns:
-    无
+There is no
 ```
-
-#### 函数get_max_diff
-
-```
-参数：
-    two_dimensional_array: 二维数组
-返回值：
-    每一列里面最大值和最小值的差值，类型是一个一维数组
-功能：
-    传入一个二维数组，函数返回每一列里面最大值和最小值的差值。
-```
-
-#### 函数remove_outliers_iqr
+#### function get_max_diff
 
 ```
-参数：
-    data: 二维数组
-返回值：
-    去除异常值后的二维数组和有效的行索引，类型是一个元组
-功能：
-    四分位距法去除传入的二维数组中的异常值，注意是对于每一列来说的自己的异常值
+Parameters:
+two_dimensional_array: A two-dimensional array Return value:
+The difference between the maximum and minimum values in each column, as a one -
+dimensional array Features:
+Passed  a  two-dimensional  array,  the  function  returns  the  difference  between  the maximum and minimum values in each column.
 ```
 
-#### 函数export_to_csv
+
+
+
+
+#### Function remove_outliers_iqr
 
 ```
-参数：
-    array_data: 二维数组，要保存的数据
-    file_name: 字符串，CSV文件的名称（不包含扩展名）
-    output_directory: 字符串，保存文件的目录路径，默认为当前目录
-返回：
-    None
-功能：
-    将给定的二维数组保存到指定目录中的CSV文件。如果文件已存在，则追加数据，并在每次写入时添加空行作为分隔符。
+Parameters:
+data: Two-dimensional array Return value:
+Two-dimensional array with outliers removed and valid row index, and type is a tuple Features:
+The interquartile range method removes outliers from the passed two-dimensional array, noting that it is its own outlier for each column
 ```
-
-#### 函数generate_2d_combinations_iter
+#### function export_to_csv
 
 ```
-功能：
-    传入一个三维数组，返回每个二维数组的所有元素组合的迭代器。如果设置了 `test_first_group` 参数True,
-    则仅返回第一个二维数组的组合。
-
-参数：
-    data_3d (list): 一个三维列表，每个元素都是一个二维列表，表示多个二维数组。
-    test_first_group (bool): 是否只生成第一个二维数组的组合。默认为 False。
-
-返回值：
-    generator: 一个生成器对象，按需生成每个二维数组的所有元素组合。
-
-异常：
-    ValueError: 如果输入的数据不是三维列表，则抛出异常。
-
-示例：
-    >>> data = [[[1, 2], [3, 4]], [[5, 6], [7, 8]]]
-    >>> result_iter = generate_2d_combinations_iter(data)
-    >>> for combinations in result_iter:
-            # 每次拿到是一个二维列表的组合
-    ...     print(list(combinations)) # [(1, 3), (1, 4), (2, 3), (2, 4)]
-    下一次
-    [(5, 7), (5, 8), (6, 7), (6, 8)]
-
-
-    >>> result_iter = generate_2d_combinations_iter(data, test_first_group=True)
-    >>> print(list(next(result_iter)))
-    [(1, 3), (1, 4), (2, 3), (2, 4)]
+Parameters:
+array_data: A two-dimensional array of the data to hold
+file_name: String, the name of the CSV file (without extension)
+output_directory: String, the directory  path to  save the file,  defaults to the  current directory
+Return:
+None Features:
+Saves the given two-dimensional array to a CSV file in the specified directory. If the file already exists, append the data and add a blank line as a separator on each write.
 ```
-
-#### 函数generate_row_permutations
+#### Function generate_2d_combinations_iter
 
 ```
-功能：
-    传入一个二维数组，返回该二维数组中每一行元素所有可能的排列组合。
+Functions:
+Pass  in a three-dimensional array and  return an  iterator  of all  combinations of the elements of each two-dimensional array. If the 'test_first_group' parameter is set to True,
+Returns only the combination of the first two-dimensional array.
+
+Parameters:
+data_3d (list): A three-dimensional list where each element is a two-dimensional list representing multiple two-dimensional arrays.
+test_first_group (bool): Whether to generate a combination of only the first 2D array. Defaults to False.
+
+Return value:
+generator: A generator object that generates all combinations of elements of each two - dimensional array on demand.
 
 
-参数：
-    data_2d (list): 一个二维列表，表示多个行数据。
 
-返回值：
-    generator: 生成器对象，按需生成每一行的所有排列组合并组合成二维数组。
 
-异常：
-    ValueError: 如果输入的二维数组为空或某行为空，则抛出异常。
 
-示例：
-    >>> data = [[1, 2], [3, 4]]
-    >>> permutations = generate_row_permutations(data)
-    >>> for perm in permutations:
-    ...     print(perm)
-    [[1, 2], [3, 4]]
-    [[1, 2], [4, 3]]
-    [[2, 1], [3, 4]]
-    [[2, 1], [4, 3]]
-```
 
-#### 函数calculate_total_permutations
+Exception:
+ValueError: This throws an exception if the input data is not a 3D list.
 
-```
-功能：
-    计算并返回二维数组中所有行的排列组合总数。
+Example:
+>>> data = [[[1, 2], [3, 4]], [[5, 6], [7, 8]]]
+>>> result_iter = generate_2d_combinations_iter(data) >>> for combinations in result_iter:
+# Each fetch is a combination of two dimensional lists ... print(list(combinations)) # [(1, 3), (1, 4), (2, 3), (2, 4)]
+Next time
+[(5, 7), (5, 8), (6, 7), (6, 8)]
 
-参数：
-    data_2d (list): 一个二维列表，表示多个行数据。
 
-返回值：
-    int: 所有行排列组合的总数。
-
-异常：
-    ValueError: 如果输入的二维数组为空或某行为空，则抛出异常。
-
-示例：
-    >>> data = [[1, 2], [3, 4]]
-    >>> total = calculate_total_permutations(data)
-    >>> print(total)
-    4
-```
-
-#### 函数display_combinations
+>>> result_iter = generate_2d_combinations_iter(data,test_first_group=True) >>> print(list(next(result_iter)))
+[(1, 3), (1, 4), (2, 3), (2, 4)] ```
+#### function generate_row_permutations
 
 ```
-功能：
-    打印二维数组中前 N 个排列组合，以检测组合生成的正确性。
+Functions:
+Pass in a two-dimensional array and return all possible permutations of the elements in each row of the two-dimensional array.
 
-参数：
-    data_2d (list): 一个二维列表，表示多个行数据。
-    N (int): 要打印的组合数量，默认为 5。
 
-返回值：
-    None
+Parameters:
+data_2d (list): A two-dimensional list representing multiple rows of data.
 
-异常：
-    ValueError: 如果输入的二维数组为空或某行为空，则抛出异常。
+Return value:
+generator: A generator object that generates all permutations of each row on demand and combines them into a two-dimensional array.
 
-示例：
-    >>> data = [[1, 2], [3, 4]]
-    >>> display_combinations(data, N=2)
-    [1, 2]
-    [3, 4]
+Exception:
+ValueError: This throws an exception if the input 2-D array is empty or if a row is empty.
 
-    [1, 2]
-    [4, 3]
-```
+Example:
+>>> data = [[1, 2], [3, 4]]
+>>> permutations = generate_row_permutations(data) >>> for perm in permutations:
+... print(perm) [[1, 2], [3, 4]]  [[1, 2], [4, 3]]
 
-#### 函数evaluate_list_similarity
 
-```
-功能：
-    评估列表中元素间的差异与给定值 `n` 的接近程度。支持不同的评分方法，例如均方误差 (MSE)、绝对误差等。
-    三种方式都是得分越小表示列表元素与目标值的接近程度越高
-参数：
-    lst (list of int/float): 需要评估的数字列表。
-    n (int/float): 用于比较的参考值，计算差异的目标值。
-    method (str): 选择的评分方法。支持 'MSE'（均方误差）、'MAE'（平均绝对误差）、'total_score'（总分）等。
 
-返回值：
-    float: 计算得出的评分值。
 
-异常：
-    ValueError: 如果输入的 `lst` 不是列表或 `n` 不是整数或浮点数，则抛出异常。
-    TypeError: 如果 `lst` 中的元素不是整数或浮点数，则抛出异常。
-    ValueError: 如果选择的评分方法不被支持，则抛出异常。
 
-示例：
-    >>> lst = [1, 3, 6, 10]
-    >>> n = 2
-    >>> score = evaluate_list_similarity(lst, n, method='MSE')
-    >>> print(score)
-
-    >>> score = evaluate_list_similarity(lst, n, method='MAE')
-    >>> print(score)
-```
-
-#### 函数check_unique
+[[2, 1], [3, 4]]
+[[2, 1], [4, 3]] ```
+#### function calculate_total_permutations
 
 ```
-功能：
-    检查传入的二维数组中的每个元素是否都是唯一的。如果所有元素唯一，返回 True；否则，返回 False。
+Functions:
+Calculate and return the total number of permutations and combinations of all rows in a two-dimensional array.
 
-参数：
-    data (list of list): 一个二维列表，其中包含需要检查的元素。
+Parameters:
+data_2d (list): A two-dimensional list representing multiple rows of data.
 
-返回值：
-    bool: 如果所有元素都唯一，返回 True；否则，返回 False。
+Return value:
+int: The total number of all combinations of row permutations.
 
-异常：
-    TypeError: 如果输入的 `data` 不是一个二维列表，或包含非列表的元素，则抛出异常。
+Exception:
+ValueError: This throws an exception if the input 2-D array is empty or if a row is empty.
 
-示例：
-    >>> data = [[1, 2, 3], [4, 5, 6]]
-    >>> check_unique(data)
-    True
+Example:
+>>> data = [[1, 2], [3, 4]]
+>>> total = calculate_total_permutations(data) >>> print(total)
+4 ```
+#### function display_combinations
 
-    >>> data = [[1, 2, 3], [3, 4, 5]]
-    >>> check_unique(data)
-    False
 ```
+Functions:
+Print the first N permutations in a two-dimensional array to check the correctness of the combination generation.
 
+Parameters:
+data_2d (list): A two-dimensional list representing multiple rows of data. N (int): The number of combinations to print, which defaults to 5.
+
+Return value: None
+
+Anomaly:
+ValueError: This throws an exception if the input 2-D array is empty or if a row is empty.
+
+
+
+
+
+Example:
+>>> data = [[1, 2], [3, 4]]
+>>> display_combinations(data, N=2) [1, 2]
+[3, 4]
+
+[1, 2]
+[4, 3] ```
+#### function evaluate_list_similarity
+
+```
+Functions:
+Evaluate how close the difference between items in the list is to a given value 'n'. Different scoring methods are supported, such as mean squared error (MSE), absolute error, etc.
+In all three cases, a smaller score indicates that the list element is closer to the target value
+Parameters:
+lst (list of int/float): A list of numbers to evaluate.
+n (int/float): A reference value for comparison, a target value for calculating differences.
+method (str): The scoring method selected. Support 'MSE' (mean squared error), 'MAE' (Mean absolute error), 'total_score' (total score), etc.
+
+Return value:
+float: The calculated rating value.
+
+Anomaly:
+ValueError: Throws an exception if the input 'lst' is not a list or 'n' is not an integer or float.
+TypeError: Throws an exception if the element in 'lst' is not an integer or float.
+ValueError: Throws an exception if the selected scoring method is not supported.
+
+Example:
+>>> lst = [1, 3, 6, 10] >>> n = 2
+>>> score = evaluate_list_similarity(lst, n, method='MSE') >>> print(score)
+
+>>> score = evaluate_list_similarity(lst, n, method='MAE') >>> print(score)
+```
+#### function check_unique
+
+
+
+
+
+
+```
+Functions:
+Checks whether each element of the passed two-dimensional array  is  unique.  If all elements are unique, return True; Otherwise, False is returned.
+
+Parameters:
+data (list of list): A two-dimensional list containing the elements to check.
+
+Return value:
+bool: True if all elements are unique; Otherwise, False.
+
+Exception:
+TypeError: An exception is thrown if the input 'data' is not a two-dimensional list, or contains elements that are not a list.
+
+Example:
+>>> data = [[1, 2, 3], [4, 5, 6]] >>> check_unique(data)
+True
+
+>>> data = [[1, 2, 3], [3, 4, 5]] >>> check_unique(data)
+False
+```  ***
+## Class part: ***
+# Filename: source2md.py ***
 ***
-
-## 类部分：
-
-***
-
-# 文件名称: source2md.py
-
-***
-
-***
-
-## 函数部分：
-
-#### 函数dir2md
-
+## Functions section:   #### Function dir2md
 ```
 Args:
-    source_dir: 待处理目录
-    output_dir: 输出目录
-    single_file: 是否将所有文件放到一个md文件中
-```
 
-#### 函数extract_info
+
+
+
+
+source_dir: The directory to be processed output_dir: The output directory
+single_file: Whether to put all files into a single md file ```
+#### function extract_info
 
 ```
-功能：
-    解析python文件，提取函数和类信息
-Args:
-    file_path: 待处理文件路径
+Functions:
+Parse python files to extract function and class information Args:
+file_path: The path of the file to be processed Returns:
+function_docs: Function information
+class_info: Class information ```
+#### function all_save_markdown
+
+```
+Functions:
+Save the extracted function and class information as markdown files Args:
+file_path: The path of the file to be processed output_path: The save path
+function_docs: function information
+class_info: Class information Returns:
+There is no ```
+#### function all2md
+
+```
+Function: Call to extract function and class information from a python file and save it as a
+markdown file Args:
+file_path: String, the path to the python file
+output_path: String, the path to save the markdown file Returns:
+There is no ```
+#### function extract_function_docs_from_file
+
+
+
+
+
+
+```
+Extract the docstring (comment section) of the function from the Python file.
+
+Parameters:
+file_path: String, the path to the Python file.
+
 Returns:
-    function_docs: 函数信息
-    class_info: 类信息
-```
-
-#### 函数all_save_markdown
+Dictionary with the function name as key and the function docstring as value. ```
+#### function save_docs_to_markdown
 
 ```
-功能：
-    将提取的函数和类信息保存为markdown文件
-Args:
-    file_path: 待处理文件路径
-    output_path: 保存路径
-    function_docs: 函数信息
-    class_info: 类信息
-Returns:
-    无
-```
+Save the function's docstring to a Markdown file.
 
-#### 函数all2md
+Parameters:
+docs: dictionary that contains a mapping of function names and docstrings. output_path: String, the path to save the Markdown file.
+```
+#### function pyFun2md
 
 ```
-功能：调用，将一个python文件中的函数和类信息提取出来，并保存为markdown文件
-Args:
-    file_path: 字符串，python文件的路径
-    output_path: 字符串，markdown文件的保存路径
-Returns:
-    无
-```
+Extract docstring from Python file and save as Markdown file.
 
-#### 函数extract_function_docs_from_file
+Parameters:
+source_file: String, the path to the source Python file.
+output_md: String, the path to the output Markdown file.
+```  *** ## ***
+# The link to the repository
 
-```
-从 Python 文件中提取函数的 docstring（注释部分）。
-
-参数:
-    file_path: 字符串，Python 文件的路径。
-
-返回:
-    字典，键为函数名，值为函数的 docstring。
-```
-
-#### 函数save_docs_to_markdown
-
-```
-将函数的 docstring 保存到 Markdown 文件中。
-
-参数:
-    docs: 字典，包含函数名和 docstring 的映射。
-    output_path: 字符串，Markdown 文件的保存路径。
-```
-
-#### 函数pyFun2md
-
-```
-将 Python 文件中提取 docstring 并保存为 Markdown 文件。
-
-参数:
-    source_file: 字符串，源 Python 文件的路径。
-    output_md: 字符串，输出 Markdown 文件的路径。
-```
-
-***
-
-## 
-
-***
-
-# 仓库的链接
-
-如果使用中有问题或者是需要别的什么算法，欢迎来提Issues，我会逐个看过去的
+If you have any questions or need any other algorithms, feel free to mention the Issues and I will go through them one by one
 
 # END
+
+
+
+
 
 ***
